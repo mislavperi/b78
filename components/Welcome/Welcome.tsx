@@ -1,25 +1,23 @@
-import { Title, Text, Anchor } from '@mantine/core';
+import { Container } from '@mantine/core';
 import useStyles from './Welcome.styles';
+import { useEffect, useRef } from 'react';
 
 export function Welcome() {
   const { classes } = useStyles();
 
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  }, []);
+
   return (
-    <>
-      <Title className={classes.title} align="center" mt={100}>
-        Welcome to{' '}
-        <Text inherit variant="gradient" component="span">
-          Mantine
-        </Text>
-      </Title>
-      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
-        This starter Next.js project includes a minimal setup for server side rendering, if you want
-        to learn more on Mantine + Next.js integration follow{' '}
-        <Anchor href="https://mantine.dev/guides/next/" size="lg">
-          this guide
-        </Anchor>
-        . To get started edit index.tsx file.
-      </Text>
-    </>
+    <Container className={classes.videoContainer} fluid>
+      <video ref={videoRef} autoPlay muted loop playsInline className={classes.video}>
+        <source src="/assets/b78.mp4" type="video/mp4" />
+      </video>
+    </Container>
   );
 }
