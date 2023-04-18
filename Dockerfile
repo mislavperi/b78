@@ -1,7 +1,7 @@
 FROM node:18-alpine3.17 AS deps
 
 WORKDIR /app
-RUN npm ci
+RUN npm i
 
 FROM node:18-alpine3.17 AS builder
 WORKDIR /app
