@@ -1,19 +1,11 @@
 import {
-  Container,
-  Grid,
-  Skeleton,
-  SimpleGrid,
-  rem,
   useMantineTheme,
-  Stack,
-  px,
   Text,
   Flex,
   MediaQuery,
   Card,
    Image
 } from '@mantine/core';
-import { useEffect, useRef } from 'react';
 import useStyles from './Cuisine.styles';
 
 export function Cuisine() {
@@ -41,8 +33,6 @@ export function Cuisine() {
   };
   const BASE_HEIGHT = 360;
   const BASE_WIDTH = 240;
-  const getSubHeight = (children: number, spacing: number) =>
-    BASE_HEIGHT / children - spacing * ((children - 1) / children);
 
   return (
     <MediaQuery

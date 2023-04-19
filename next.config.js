@@ -7,4 +7,6 @@ module.exports = withBundleAnalyzer({
   eslint: {
     ignoreDuringBuilds: true,
   },
+  output: "standalone",
+
 });

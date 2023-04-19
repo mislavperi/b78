@@ -7,12 +7,6 @@ export function Welcome() {
 
   const videoRef = useRef(null);
 
-  useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play();
-    }
-  }, []);
-
   return (
     <Container className={classes.videoContainer} fluid>
       <video ref={videoRef} autoPlay muted loop playsInline className={classes.video}>
