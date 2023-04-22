@@ -8,7 +8,7 @@ services:
       dockerfile: Dockerfile
     labels:
       traefik.enable: true
-      traefik.http.routers.client.rule: Host(`boket78.com`) || Host(`www.boket78.wtf`)
+      traefik.http.routers.client.rule: Host(`boket78.com`) || Host(`www.boket78.com`)
       traefik.http.routers.client.entrypoints: https
 
 networks:
