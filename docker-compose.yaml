@@ -1,14 +1,16 @@
 version: '3.9'
 services:
-  proxy:
-    image: nginx:1.17
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-    ports: 
-     - 1001:80
-    depends_on:
-     - client
   client:
+    networks:
+      - traefik
     build:
       context: ./
       dockerfile: Dockerfile
+    labels:
+      traefik.enable: true
+      traefik.http.routers.client.rule: Host(`boket78.com`) || Host(`www.boket78.wtf`)
+      traefik.http.routers.client.entrypoints: https
+
+networks:
+    traefik:
+        external: true
