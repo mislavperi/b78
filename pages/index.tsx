@@ -1,6 +1,7 @@
 import { Welcome } from '../components/Welcome/Welcome';
 import { About } from '../components/About/About';
 import { Contact } from '../components/Contact/Contact';
+import { Menu } from '../components/Menu/Menu';
 
 export default function HomePage() {
   return (
@@ -11,6 +12,7 @@ export default function HomePage() {
     >
       <Welcome />
       <About />
+      <Menu />
       <Contact />
     </div>
   );

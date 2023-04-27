@@ -8,14 +8,13 @@ import {
   SimpleGrid,
   Container,
   Divider,
-   Anchor
+   Anchor,
 } from '@mantine/core';
 import {
   IconBrandFacebook,
   IconBrandTwitter,
   IconBrandInstagram,
   IconBrandYoutube,
-  IconMenu2,
 } from '@tabler/icons-react';
 import { useState } from 'react';
 import { Sling as Hamburger } from 'hamburger-react'

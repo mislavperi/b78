@@ -9,7 +9,7 @@ export function Welcome() {
   }, [visible]);
 
   return (
-    <Container fluid m={0} p={0} pos="relative" id="landing">
+    <Container fluid m={0} p={0} pos="relative" id="landing" bg="#659499">
       <Image src="/assets/landing.jpg" height="100vh" style={{ filter: 'brightness(50%);' }} />
       <Image
         src="/assets/logo.png"
@@ -30,7 +30,7 @@ export function Welcome() {
         top="50%"
         left="50%"
         width={500}
-        ml={-275}
+        ml={-250}
         mt={-175}
         style={{
           opacity: visible ? 1 : 0,
