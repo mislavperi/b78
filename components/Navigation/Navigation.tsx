@@ -8,6 +8,7 @@ import {
   SimpleGrid,
   Container,
   Divider,
+   Anchor
 } from '@mantine/core';
 import {
   IconBrandFacebook,
@@ -64,9 +65,9 @@ export function Navigation() {
                     marginLeft: 50,
                   }}
                 >
-                  <Text color="white" ml={100} mt={50} p={5} size={68} weight={400}>
+                  <Anchor color="white" ml={100} mt={50} p={5} size={68} weight={400} href="#landing" onClick={() => setToggled(false)}>
                     Home
-                  </Text>
+                  </Anchor>
                 </MediaQuery>
                 <MediaQuery
                   smallerThan="xs"
@@ -74,9 +75,9 @@ export function Navigation() {
                     marginLeft: 50,
                   }}
                 >
-                  <Text color="white" ml={100} mt={50} p={5} size={68} weight={400}>
+                  <Anchor color="white" ml={100} mt={50} p={5} size={68} weight={400} href="#about" onClick={() => setToggled(false)}>
                     About us
-                  </Text>
+                  </Anchor>
                 </MediaQuery>
                 <MediaQuery
                   smallerThan="xs"
@@ -84,9 +85,9 @@ export function Navigation() {
                     marginLeft: 50,
                   }}
                 >
-                  <Text color="white" ml={100} mt={50} p={5} size={68} weight={400}>
-                    Gallery
-                  </Text>
+                  <Anchor color="white" ml={100} mt={50} p={5} size={68} weight={400} href="#contact" onClick={() => setToggled(false)}>
+                    Contact us
+                  </Anchor>
                 </MediaQuery>
               </Flex>
               <MediaQuery
