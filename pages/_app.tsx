@@ -8,13 +8,6 @@ import { Navigation } from '../components/Navigation/Navigation';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(props.colorScheme);
-
-  const toggleColorScheme = (value?: ColorScheme) => {
-    const nextColorScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
-    setColorScheme(nextColorScheme);
-    setCookie('mantine-color-scheme', nextColorScheme, { maxAge: 60 * 60 * 24 * 30 });
-  };
 
   return (
     <>
@@ -24,13 +17,63 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <link rel="shortcut icon" href="/favicon.svg" />
       </Head>
 
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
-          <Navigation/>
-          <Component {...pageProps} />
-          <Notifications />
-        </MantineProvider>
-      </ColorSchemeProvider>
+      <MantineProvider
+        theme={{
+          colorScheme: 'light',
+          loader: 'bars',
+          components: {
+            Button: {
+              styles: {
+                root: {
+                  backgroundColor: "#B3852D",
+                  border: "0.075rem solid white"
+                }
+              }
+            },
+            Text: {
+              styles: {
+                root: {
+                  color: "white",
+                  align: "center"
+                }
+              }
+            },
+            Anchor: {
+              styles: {
+                root: {
+                  color: "white"
+                }
+              }
+            },
+            ActionIcon: {
+              styles: {
+                root: {
+                  color: "white",
+                  backgroundColor: "#B3852D",
+                  border: "0.075rem solid white",
+                  '&:hover': {
+                    backgroundColor: "rgba(179, 133, 45, 0.9)"
+                  }
+                }
+              }
+            },
+            Flex: {
+              styles: {
+                root: {
+                  backgroundColor: "#659499",
+                  width: "30px",
+                }
+              }
+            }
+          }
+        }}
+        withGlobalStyles
+        withNormalizeCSS
+      >
+        <Navigation />
+        <Component {...pageProps} />
+        <Notifications />
+      </MantineProvider>
     </>
   );
 }
