@@ -1,7 +1,21 @@
-import { Container, Image, Affix, Transition, Button, rem, keyframes, createStyles } from '@mantine/core';
+import {
+  Container,
+  Affix,
+  Transition,
+  MediaQuery,
+  Button,
+  rem,
+  keyframes,
+  createStyles,
+  Image as MantineImage,
+} from '@mantine/core';
 import { useState, useEffect } from 'react';
 import { useWindowScroll } from '@mantine/hooks';
 import { IconArrowUp, IconArrowDown } from '@tabler/icons-react';
+import Image from 'next/image';
+
+import illustration from '../../public/assets/illustration.webp';
+import logo from '../../public/assets/logo (1).webp';
 
 export function Welcome() {
   const [scroll, scrollTo] = useWindowScroll();
@@ -27,45 +41,64 @@ export function Welcome() {
   const { classes } = useStyles();
 
   return (
-    <Container fluid m={0} p={0} pos="relative" id="landing" bg="#659499">
-      <Container
-        fluid
-        pos="absolute"
-        bottom={0}
-        left="50%"
-        style={{ zIndex: 60 }}
-        ml={-20}
-      >
+    <Container fluid m={0} p={0} pos="relative" id="landing" bg="#659499" maw="100vw">
+      <Container fluid pos="absolute" bottom={0} left="50%" style={{ zIndex: 60 }} ml={-20}>
         <IconArrowDown size={40} color="white" className={classes.container} />
       </Container>
-      <Image src="/assets/landing.jpg" height="100vh" style={{ filter: 'brightness(50%);' }} />
-      <Image
-        src="/assets/logo.png"
-        pos="absolute"
-        top="50%"
-        left="50%"
-        width={600}
-        ml={-300}
-        mt={-300}
-        style={{
-          opacity: visible ? 0 : 1,
-          transition: '2s',
-        }}
+      <MantineImage
+        src="/assets/landing (1).webp"
+        height="100vh"
+        style={{ filter: 'brightness(50%);' }}
       />
-      <Image
-        src="/assets/illustration.png"
-        pos="absolute"
-        top="50%"
-        left="50%"
-        width={500}
-        ml={-250}
-        mt={-175}
-        style={{
-          opacity: visible ? 1 : 0,
+      <MediaQuery
+        smallerThan="md"
+        styles={{
+          width: 400,
+          height: "auto",
+          marginLeft: "-200px !important",
+          marginTop: "-200px !important",
+        }}
+      >
+        <Image
+          alt="boket78 logo"
+          src={logo}
+          width={500}
+          style={{
+            marginLeft: -250,
+            marginTop: -250,
+            top: '50%',
+            left: '50%',
+            opacity: visible ? 1 : 0,
+            transition: '2s',
+            position: 'absolute',
+          }}
+        />
+      </MediaQuery>
+      <MediaQuery
+        smallerThan="md"
+        styles={{
+          width: 300,
+          height: "auto",
+          marginLeft: "-150px !important",
+          marginTop: "-100px !important",
+        }}
+      >
+        <Image
+          alt="boket78 illustration"
+          src={illustration}
+          width={500}
+          style={{
+            marginLeft: -250,
+            marginTop: -200,
+            top: '50%',
+            left: '50%',
+            opacity: visible ? 0 : 1,
+            transition: '2s',
+            position: 'absolute',
+          }}
+        />
+      </MediaQuery>
 
-          transition: '2s',
-        }}
-      />
       <Affix position={{ bottom: rem(20), right: rem(20) }}>
         <Transition transition="slide-up" mounted={scroll.y > 0}>
           {(transitionStyles) => (

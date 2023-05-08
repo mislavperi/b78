@@ -10,12 +10,6 @@ import {
   Divider,
   Anchor,
 } from '@mantine/core';
-import {
-  IconBrandFacebook,
-  IconBrandTwitter,
-  IconBrandInstagram,
-  IconBrandYoutube,
-} from '@tabler/icons-react';
 import { useState } from 'react';
 import { Sling as Hamburger } from 'hamburger-react';
 
@@ -28,13 +22,13 @@ export function Navigation() {
         <ActionIcon
           onClick={() => setToggled(!toggled)}
           style={{ zIndex: 99 }}
-          w={92}
-          h={92}
-          m={30}
+          w={64}
+          h={64}
+          m={15}
           radius="50%"
           right={0}
         >
-          <Hamburger size={32} toggled={toggled} toggle={setToggled} color="white" />
+          <Hamburger size={24} toggled={toggled} toggle={setToggled} color="white" />
         </ActionIcon>
       </Container>
       <Transition mounted={toggled} transition="slide-right" duration={400} timingFunction="ease">

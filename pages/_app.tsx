@@ -8,7 +8,6 @@ import { Navigation } from '../components/Navigation/Navigation';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
-
   return (
     <>
       <Head>
@@ -19,8 +18,13 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
 
       <MantineProvider
         theme={{
+          fontFamily: 'Verdana, sans-serif',
           colorScheme: 'light',
           loader: 'bars',
+          breakpoints: {
+            pml: "70em",
+            xxl: "98em"
+          },
           components: {
             Button: {
               styles: {
