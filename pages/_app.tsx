@@ -30,7 +30,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               styles: {
                 root: {
                   backgroundColor: "#B3852D",
-                  border: "0.075rem solid white"
                 }
               }
             },
@@ -54,7 +53,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
                 root: {
                   color: "white",
                   backgroundColor: "#B3852D",
-                  border: "0.075rem solid white",
                   '&:hover': {
                     backgroundColor: "rgba(179, 133, 45, 0.9)"
                   }

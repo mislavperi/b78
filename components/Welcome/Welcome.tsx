@@ -41,7 +41,7 @@ export function Welcome() {
   const { classes } = useStyles();
 
   return (
-    <Container fluid m={0} p={0} pos="relative" id="landing" bg="#659499" maw="100vw">
+    <Container fluid m={0} p={0} pos="relative" id="landing" maw="100vw">
       <Container fluid pos="absolute" bottom={0} left="50%" style={{ zIndex: 60 }} ml={-20}>
         <IconArrowDown size={40} color="white" className={classes.container} />
       </Container>
@@ -54,9 +54,9 @@ export function Welcome() {
         smallerThan="md"
         styles={{
           width: 400,
-          height: "auto",
-          marginLeft: "-200px !important",
-          marginTop: "-200px !important",
+          height: 'auto',
+          marginLeft: '-200px !important',
+          marginTop: '-200px !important',
         }}
       >
         <Image
@@ -78,9 +78,9 @@ export function Welcome() {
         smallerThan="md"
         styles={{
           width: 300,
-          height: "auto",
-          marginLeft: "-150px !important",
-          marginTop: "-100px !important",
+          height: 'auto',
+          marginLeft: '-150px !important',
+          marginTop: '-100px !important',
         }}
       >
         <Image
@@ -103,12 +103,9 @@ export function Welcome() {
         <Transition transition="slide-up" mounted={scroll.y > 0}>
           {(transitionStyles) => (
             <Button
-              leftIcon={<IconArrowUp size="1rem" />}
               style={transitionStyles}
               onClick={() => scrollTo({ y: 0 })}
-            >
-              Return to top
-            </Button>
+            ><IconArrowUp size="1rem" /></Button>
           )}
         </Transition>
       </Affix>

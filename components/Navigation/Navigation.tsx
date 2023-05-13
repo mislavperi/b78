@@ -98,7 +98,7 @@ export function Navigation() {
                     p={5}
                     size={58}
                     weight={400}
-                    href="#about"
+                    href="#menu"
                     onClick={() => setToggled(false)}
                   >
                     Menu
