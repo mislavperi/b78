@@ -102,7 +102,7 @@ export function Contact() {
             miw={200}
             classNames={classes}
           />
-          <Group position="right" mt="md" h="100%" m={0} p={0} mt={0}>
+          <Group position="right" h="100%" m={0} p={0}>
             <Button type="submit" h="100%">Book a table</Button>
           </Group>
         </form>

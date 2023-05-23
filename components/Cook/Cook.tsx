@@ -13,7 +13,7 @@ export function Cook() {
         sx={{ background: 'linear-gradient(to right top, #659499, #5c969d, #5299a0, #469ba4, #379da8);' }}
       >
         <Text align="center!important" size={48} my={60}>
-          Chef Prljavi Franjo
+          Chef Ime Prezime
         </Text>
         <Text align="center!important" size={24} mx={20}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta similique quisquam
