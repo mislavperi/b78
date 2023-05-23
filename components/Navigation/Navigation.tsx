@@ -18,15 +18,13 @@ export function Navigation() {
 
   return (
     <>
-      <Container fluid pos="fixed" right={0} style={{ zIndex: 99 }}>
+      <Container fluid pos="absolute" style={{ zIndex: 99 }}>
         <ActionIcon
           onClick={() => setToggled(!toggled)}
           style={{ zIndex: 99 }}
           w={64}
           h={64}
-          m={15}
-          radius="50%"
-          right={0}
+          m={10}
         >
           <Hamburger size={24} toggled={toggled} toggle={setToggled} color="white" />
         </ActionIcon>

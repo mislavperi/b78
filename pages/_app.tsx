@@ -37,7 +37,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               styles: {
                 root: {
                   color: "white",
-                  align: "center"
+                  textAlign: "left"
                 }
               }
             },
@@ -52,9 +52,8 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               styles: {
                 root: {
                   color: "white",
-                  backgroundColor: "#B3852D",
                   '&:hover': {
-                    backgroundColor: "rgba(179, 133, 45, 0.9)"
+                    backgroundColor: "rgba(248, 249, 250, 0); !force"
                   }
                 }
               }
