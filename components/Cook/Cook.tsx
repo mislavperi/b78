@@ -12,9 +12,11 @@ export function Cook() {
         my={120}
         sx={{ background: 'linear-gradient(to right top, #659499, #5c969d, #5299a0, #469ba4, #379da8);' }}
       >
+        {/* @ts-ignore */}
         <Text align="center!important" size={48} my={60}>
           Chef Ime Prezime
         </Text>
+        {/* @ts-ignore */}
         <Text align="center!important" size={24} mx={20}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta similique quisquam
           nulla eligendi aspernatur deleniti architecto enim dolor dolorem reiciendis quaerat beatae
