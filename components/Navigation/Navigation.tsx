@@ -41,7 +41,7 @@ export function Navigation() {
             <Flex
               h="100%"
               w="100%"
-              bg="#659499"
+              bg="#02323C"
               direction="row"
               pos="fixed"
               top={0}

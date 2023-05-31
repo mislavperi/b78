@@ -1,15 +1,4 @@
-import {
-  BackgroundImage,
-  Flex,
-  TextInput,
-  Group,
-  Button,
-  Checkbox,
-  createStyles,
-  rem,
-} from '@mantine/core';
-import { useForm } from '@mantine/form';
-import { DateTimePicker } from '@mantine/dates';
+import { BackgroundImage, Flex, Container, Text, Anchor, Image } from '@mantine/core';
 import {
   IconBrandTripadvisor,
   IconBrandFacebook,
@@ -18,94 +7,65 @@ import {
   IconMail,
 } from '@tabler/icons-react';
 
-const useStyles = createStyles((theme) => ({
-  root: {
-    position: 'relative',
-  },
-
-  input: {
-    height: rem(54),
-    paddingTop: rem(18),
-  },
-
-  label: {
-    position: 'absolute',
-    pointerEvents: 'none',
-    fontSize: theme.fontSizes.xs,
-    paddingLeft: theme.spacing.sm,
-    paddingTop: `calc(${theme.spacing.sm} / 2)`,
-    zIndex: 1,
-  },
-}));
+import illustration from '../../public/assets/illustration.webp';
 
 export function Contact() {
-  const form = useForm({
-    initialValues: {
-      email: '',
-      termsOfService: false,
-    },
-
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : 'Invalid email'),
-    },
-  });
-
-  const { classes } = useStyles();
-
   const socials = [
     {
       name: 'Like us on Facebook',
       link: 'https://www.facebook.com/boket78/',
-      icon: <IconBrandFacebook color="white" />,
+      icon: <IconBrandFacebook color="white" size={24} />,
     },
     {
       name: 'Follow us on Instagram',
       link: 'https://www.instagram.com/boket78.bol/',
-      icon: <IconBrandInstagram color="white" />,
+      icon: <IconBrandInstagram color="white" size={24} />,
     },
     {
       name: 'Leave a review on Tripadvisor',
       link: 'https://www.tripadvisor.com/Restaurant_Review-g303802-d24138556-Reviews-Boket78-Bol_Brac_Island_Split_Dalmatia_County_Dalmatia.html',
-      icon: <IconBrandTripadvisor color="white" />,
+      icon: <IconBrandTripadvisor color="white" size={24} />,
+    },
+    {
+      name: 'Leave a review on Tripadvisor',
+      link: 'https://www.tripadvisor.com/Restaurant_Review-g303802-d24138556-Reviews-Boket78-Bol_Brac_Island_Split_Dalmatia_County_Dalmatia.html',
+      icon: <IconPhone color="white" size={24} />,
+    },
+    {
+      name: 'Leave a review on Tripadvisor',
+      link: 'https://www.tripadvisor.com/Restaurant_Review-g303802-d24138556-Reviews-Boket78-Bol_Brac_Island_Split_Dalmatia_County_Dalmatia.html',
+      icon: <IconMail color="white" size={24} />,
     },
   ];
 
   return (
-    <BackgroundImage src="/assets/b3darken.webp" h="100vh">
-      <Flex w="100vw">
-        <form
-          onSubmit={form.onSubmit((values) => console.log(values))}
-          style={{ backgroundColor: 'red',  width:"50%", display: "flex" }}
-        >
-          <TextInput
-            label="E-mail"
-            placeholder="3"
-            miw={200}
-            classNames={classes}
-          />
-          <TextInput
-            withAsterisk
-            required={true}
-            label="Phone number"
-            placeholder="3"
-            miw={200}
-            classNames={classes}
-          />
-          <TextInput
-            label="Number of people"
-            placeholder="3"
-            miw={200}
-            classNames={classes}
-          />
-          <DateTimePicker 
-            label="Pick date and time"
-            miw={200}
-            classNames={classes}
-          />
-          <Group position="right" h="100%" m={0} p={0}>
-            <Button type="submit" h="100%">Book a table</Button>
-          </Group>
-        </form>
+    <BackgroundImage src="/assets/contact.webp" h="100vh">
+      <Flex w="100vw" direction="column" align="center" justify="center" h="100vh">
+      <Image src="/assets/illustration.webp" maw={500} />
+
+        <Container fluid>
+          <Text size="calc(28px + 0.390625vw)" ml={10}>
+            Get in touch with us
+          </Text>
+          <Flex justify="space-around" m={30}>
+            {socials.map((social) => {
+              return (
+                <Flex
+                  align="center"
+                  style={{
+                    border: "1px solid white",
+                    padding: "5px",
+                    borderRadius: "15%"
+                  }}
+                >
+                  {social.icon}
+                </Flex>
+              );
+            })}
+          </Flex>
+        </Container>
+        <Text>Ulica Frane Radića 3021</Text>
+        <Text>Open everyday from 14h till 24h</Text>
       </Flex>
     </BackgroundImage>
   );

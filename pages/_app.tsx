@@ -14,62 +14,65 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <title>Mantine next example</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.svg" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
+          rel="stylesheet"
+        />
       </Head>
-
       <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
         theme={{
-          fontFamily: 'Verdana, sans-serif',
+          fontFamily: 'Quicksand',
           colorScheme: 'light',
           loader: 'bars',
           breakpoints: {
-            pml: "70em",
-            xxl: "98em"
+            pml: '70em',
+            xxl: '98em',
           },
           components: {
             Button: {
               styles: {
                 root: {
-                  backgroundColor: "#B3852D",
-                }
-              }
+                  backgroundColor: '#B3852D',
+                },
+              },
             },
             Text: {
               styles: {
                 root: {
-                  color: "white",
-                  textAlign: "left"
-                }
-              }
+                  color: 'white',
+                  textAlign: 'left',
+                },
+              },
             },
             Anchor: {
               styles: {
                 root: {
-                  color: "white"
-                }
-              }
+                  color: 'white',
+                },
+              },
             },
             ActionIcon: {
               styles: {
                 root: {
-                  color: "white",
+                  color: 'white',
                   '&:hover': {
-                    backgroundColor: "rgba(248, 249, 250, 0); !force"
-                  }
-                }
-              }
+                    backgroundColor: 'rgba(248, 249, 250, 0); !force',
+                  },
+                },
+              },
             },
             Flex: {
               styles: {
                 root: {
-                  backgroundColor: "#659499",
-                  width: "30px",
-                }
-              }
-            }
-          }
+                  backgroundColor: '#659499',
+                  width: '30px',
+                },
+              },
+            },
+          },
         }}
-        withGlobalStyles
-        withNormalizeCSS
       >
         <Navigation />
         <Component {...pageProps} />

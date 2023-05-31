@@ -1,31 +1,41 @@
-import { Container, Flex, Image, Text, Title } from '@mantine/core';
+import { Flex, Image, Text, MediaQuery } from '@mantine/core';
 
 export function Cook() {
   return (
     <Flex h="100vh">
+      <MediaQuery
+        smallerThan="md"
+        styles={{ 
+          background: `url('assets/marko_darken.webp')`,
+          width: '100%',
+          height: '100%',
+          backgroundSize: "cover",
+         }}
+      >
       <Flex
         w="65%"
-        bg="cyan"
-        align="center"
         direction="column"
         justify="center"
-        my={120}
-        sx={{ background: 'linear-gradient(to right top, #659499, #5c969d, #5299a0, #469ba4, #379da8);' }}
+        sx={{ background: '#02323C' }}
       >
         {/* @ts-ignore */}
-        <Text align="center!important" size={48} my={60}>
-          Chef Ime Prezime
+        <Text size="calc(36px + 0.390625vw)" my={20} mx={40} align="end!important">
+          Chef Marko Marijanović
         </Text>
         {/* @ts-ignore */}
-        <Text align="center!important" size={24} mx={20}>
+        <Text align="end!important" size="calc(20px + 0.390625vw)" mx={40}>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta similique quisquam
           nulla eligendi aspernatur deleniti architecto enim dolor dolorem reiciendis quaerat beatae
           voluptas saepe tempore nihil quos, illo inventore?
         </Text>
       </Flex>
-      <Flex w="35%" m={0} p={0} bg="grape">
-        <Image src="/assets/Boket_6.jpg" height="100vh" />
+      </MediaQuery>
+
+      <MediaQuery smallerThan="md" styles={{width:"0%"}}>
+      <Flex w="35%" m={0} p={0} >
+        <Image src="/assets/marko.webp" height="100vh" />
       </Flex>
+      </MediaQuery>
     </Flex>
   );
 }

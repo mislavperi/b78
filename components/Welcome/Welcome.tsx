@@ -1,20 +1,22 @@
-import { Flex, BackgroundImage, Container, Text, Anchor } from '@mantine/core';
+import { Flex, BackgroundImage, Text } from '@mantine/core';
 
 import React from 'react';
 import Image from 'next/image';
 
-import illustration from '../../public/assets/illustration.webp';
 import logo from '../../public/assets/sized.webp';
 
 export function Welcome() {
   return (
     <BackgroundImage src="/assets/landing.webp" h="100vh">
-      <Flex justify="center">
+      <Flex align="center" h="100vh" direction="column">
         <Image src={logo} alt="Boket 78 logo" width={300} style={{ marginTop: -110 }} />
+        <Flex h="100vh" align="center">
+          {/* @ts-ignore */}
+          <Text size="calc(46px + 0.390625vw)" mt="-220px" weight={300} align="center!important">
+            Food for your island stay
+          </Text>
+        </Flex>
       </Flex>
-      <Container pos="absolute" fluid right={0} top={0} m={25}>
-        <Anchor size={20} weight={100}>Book a table</Anchor>
-      </Container>
     </BackgroundImage>
   );
 }
