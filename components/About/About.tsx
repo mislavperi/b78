@@ -30,12 +30,7 @@ export function About() {
             About
           </Text>
           <Text size="calc(24px + 0.1vw)" mx={40}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit iure harum, dolorem
-            explicabo molestiae sit magni quos doloribus ipsum laboriosam ut, odit non placeat. Ut
-            nulla explicabo corporis animi neque!s Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit. Voluptates voluptas quos ducimus iste laboriosam perferendis ipsa
-            laborum, delectus expedita suscipit quia ullam quasi sint laudantium ea illo eius
-            deleniti eligendi.
+          Welcome to Boket78, a hidden gem in Bol, on the picturesque island of Brač. Nestled in the heart of the town, our restaurant offers a beautiful location combined with the privacy of our secret garden. We take pride in presenting traditional Dalmatian cuisine with a modern twist, using only the freshest ingredients. Join us for an unforgettable dining experience that combines the best of local flavors and a serene ambiance. Welcome to Boket78, where culinary excellence meets island charm.
           </Text>
         </Flex>
       </MediaQuery>

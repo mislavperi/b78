@@ -24,9 +24,7 @@ export function Cook() {
         </Text>
         {/* @ts-ignore */}
         <Text align="end!important" size="calc(20px + 0.390625vw)" mx={40}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab soluta similique quisquam
-          nulla eligendi aspernatur deleniti architecto enim dolor dolorem reiciendis quaerat beatae
-          voluptas saepe tempore nihil quos, illo inventore?
+        Experience the culinary brilliance of our highly skilled chef, who brings years of expertise to every meal. Prepare to be amazed by the splendid dishes created with a perfect balance of flavors and artistic presentation. Join us for a remarkable dining experience that showcases the culinary mastery of our talented chef.
         </Text>
       </Flex>
       </MediaQuery>

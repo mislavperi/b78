@@ -5,6 +5,7 @@ import { Menu } from '../components/Menu/Menu';
 import { CardsCarousel } from '../components/Gallery/Gallery';
 import { DesignCardsCarousel } from '../components/Design/Design';
 import { Cook } from '../components/Cook/Cook'
+import { Legal } from '../components/Legal/Legal'
 
 export default function HomePage() {
   return (
@@ -20,6 +21,7 @@ export default function HomePage() {
       <Cook />
       <DesignCardsCarousel />
       <Contact />
+      <Legal/>
     </div>
   );
 }

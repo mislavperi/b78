@@ -13,7 +13,7 @@ export function Welcome() {
         <Flex h="100vh" align="center">
           {/* @ts-ignore */}
           <Text size="calc(46px + 0.390625vw)" mt="-220px" weight={300} align="center!important">
-            Food for your island stay
+            Food for your island mood
           </Text>
         </Flex>
       </Flex>
