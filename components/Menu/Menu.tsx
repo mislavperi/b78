@@ -5,19 +5,24 @@ export function Menu() {
     <BackgroundImage src="/assets/menu_darken.webp" h="100vh">
       <Flex align="center" justify="center" direction="column" h="100vh">
         {/* @ts-ignore */}
-        <Text align="center!important" maw={500} size="calc(14px + 0.390625vw)" p={5} m={5}>
-        Experience the best of traditional Dalmatian cuisine with a modern twist at our restaurant. Our menu showcases the freshest ingredients, including herbs from our own garden. Indulge in the flavors of the Adriatic Sea with our exquisite seafood dishes, or savor the taste of Brač with our locally sourced sheep meat. Join us for a culinary adventure that celebrates the essence of Dalmatia in every bite.
+        <Text align="center!important" maw={500} size="calc(16px + 0.390625vw)" p={5} m={5}>
+        Discover a modern twist on traditional Dalmatian cuisine at our restaurant. Our menu features fresh ingredients, including herbs from our garden. Delight in Adriatic Sea seafood or savor locally sourced sheep meat from Brač. Join us for a culinary adventure celebrating Dalmatia's essence in every bite.
         </Text>
+        <a href="https://boket-menu.tiiny.site/" target="_blank">
         <Button p={5} m={5}>
-          Download our menu
+          View our menu
         </Button>
+        </a>
         {/* @ts-ignore */}
-        <Text align="center!important" maw={500} size="calc(14px + 0.390625vw)" p={5} m={5}>
-        Experience the best of Croatian wines with our thoughtfully curated wine list. Our exclusive selection showcases wines from across Croatia, including Istria, Slavonia, Central Croatia, and Dalmatia. Discover the unique flavors and craftsmanship of each region as you indulge in our collection of aromatic whites, elegant reds, and refreshing rosés. Let our knowledgeable staff guide you in selecting the perfect wine to enhance your dining experience. Cheers to the remarkable world of Croatian winemaking!
+        <Text align="center!important" maw={500} size="calc(16px + 0.390625vw)" p={5} m={5}>
+        Explore the finest Croatian wines on our curated list. Discover flavors from Istria, Slavonia, Central Croatia, and Dalmatia. Indulge in aromatic whites, elegant reds, and refreshing rosés. Our knowledgeable staff will help you choose the perfect wine to enhance your dining experience. Cheers to Croatia's remarkable winemaking!
         </Text>
+        <a href="https://teal-elysha-39.tiiny.site/" target="_blank">
         <Button p={5} m={5}>
-          Download our wine card
+          View our wine card
         </Button>
+        </a>
+        
       </Flex>
     </BackgroundImage>
   );
