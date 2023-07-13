@@ -15,7 +15,7 @@ export function Menu() {
         </a>
         <a href="https://boket-menu-hr.tiiny.site/" target="_blank">
         <Button p={5} m={5}>
-          View our menu
+          View our menu in Croatian
         </Button>
         </a>
         {/* @ts-ignore */}
