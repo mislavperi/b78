@@ -4,6 +4,7 @@ import { getCookie, setCookie } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
+import { Navigation } from '../components/Navigation/Navigation';
 
 export default function App(props: AppProps & { colorScheme: ColorScheme }) {
   const { Component, pageProps } = props;
@@ -73,6 +74,8 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           },
         }}
       >
+                <Navigation />
+
         <Component {...pageProps} />
         <Notifications />
       </MantineProvider>

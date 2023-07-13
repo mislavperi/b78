@@ -10,6 +10,11 @@ export function Menu() {
         </Text>
         <a href="https://boket-menu.tiiny.site/" target="_blank">
         <Button p={5} m={5}>
+          View our menu in English
+        </Button>
+        </a>
+        <a href="https://boket-menu-hr.tiiny.site/" target="_blank">
+        <Button p={5} m={5}>
           View our menu
         </Button>
         </a>
