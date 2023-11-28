@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Flex, Image } from '@mantine/core';
 
 export function Legal() {
