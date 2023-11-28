@@ -7,20 +7,20 @@ export function Legal() {
       <Image src="/assets/eu1.jpg" width="400px" />
       <div
         id="r-rcm"
-        data-length="33"
-        class=" r-rcm_black "
-        onclick="if(event.target.nodeName.toLowerCase() != 'a') {window.open(this.querySelector('.rest-white_center').href);return 0;}"
+        dataLength="33"
+        className=" r-rcm_black "
+        onClick="if(event.target.nodeName.toLowerCase() != 'a') {window.open(this.querySelector('.rest-white_center').href);return 0;}"
       >
         {' '}
-        <a href="https://restaurantguru.com/Beer-and-More-Bol" class="r-rcm_r-link" target="blank">
+        <a href="https://restaurantguru.com/Beer-and-More-Bol" className="r-rcm_r-link" target="blank">
           Boket78
         </a>{' '}
-        <div class="r-rcm_year">2023</div>{' '}
-        <div class="r-rcm_bottom r-rcm_row-doubled ">
+        <div className="r-rcm_year">2023</div>{' '}
+        <div className="r-rcm_bottom r-rcm_row-doubled ">
           {' '}
-          <span class="r-rcm_str1 ">Best</span> <span class="r-rcm_str2 ">restaurant</span>{' '}
+          <span className="r-rcm_str1 ">Best</span> <span className="r-rcm_str2 ">restaurant</span>{' '}
         </div>{' '}
-        <div class="r-rcm_heading">
+        <div className="r-rcm_heading">
           {' '}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -34,10 +34,10 @@ export function Legal() {
               {' '}
               <path id="r-rcm-arc" d="M 12 72 a 60 60 0 0 0 120 0"></path>{' '}
             </defs>{' '}
-            <text class="r-rcm_headingbottom r-rcm_small " fill="#fff" text-anchor="middle">
+            <text className="r-rcm_headingbottom r-rcm_small " fill="#fff" textAnchor="middle">
               {' '}
               <textPath startOffset="50%" xlinkHref="#r-rcm-arc">
-                <a href="https://restaurantguru.com/" class="r-rcm_heading_link">
+                <a href="https://restaurantguru.com/" className="r-rcm_heading_link">
                   Restaurant Guru
                 </a>
               </textPath>{' '}
