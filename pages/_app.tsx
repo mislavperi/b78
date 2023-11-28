@@ -14,6 +14,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
         <title>Boket78</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link href="https://awards.infcdn.net/r_rcm.css" rel="stylesheet" />
         <link
           href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap"
           rel="stylesheet"
