@@ -1,20 +1,8 @@
 version: '3.9'
 services:
   client:
-    networks:
-      - traefik
     build:
       context: ./
       dockerfile: Dockerfile
-    labels:
-      traefik.enable: true
-      traefik.http.routers.client.rule: Host(`boket78.com`) || Host(`www.boket78.com`)
-      traefik.http.routers.client.entrypoints: https
-      traefik.http.routers.boket78-website.middlewares: www-boket78-website-redirect
-      traefik.http.middlewares.www-boket78-website-redirect.redirectregex.regex: https://boket78.com/(.*)
-      traefik.http.middlewares.www-boket78-website-redirect.redirectregex.replacement: https://www.boket78.com/$${1}
-      traefik.http.middlewares.www-boket78-website-redirect.redirectregex.permanent: true
-
-networks:
-    traefik:
-        external: true
+    ports:
+      - 4001:3000
