@@ -1,6 +1,5 @@
-import { Flex, MediaQuery, Transition, ActionIcon, Container, Anchor } from '@mantine/core';
+import { Flex, MediaQuery, Transition, Anchor } from '@mantine/core';
 import { useState } from 'react';
-import { Sling as Hamburger } from 'hamburger-react';
 import Link from 'next/link';
 
 export function Navigation() {
@@ -8,17 +7,6 @@ export function Navigation() {
 
   return (
     <>
-      <Container fluid pos="absolute" style={{ zIndex: 99 }}>
-        {/* <ActionIcon
-          onClick={() => setToggled(!toggled)}
-          style={{ zIndex: 99 }}
-          w={64}
-          h={64}
-          m={10}
-        >
-          <Hamburger size={24} toggled={toggled} toggle={setToggled} color="white" />
-        </ActionIcon> */}
-      </Container>
       <Transition mounted={toggled} transition="slide-right" duration={400} timingFunction="ease">
         {(styles) => (
           <MediaQuery
