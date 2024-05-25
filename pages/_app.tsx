@@ -1,6 +1,5 @@
-import { useState } from 'react';
 import NextApp, { AppProps, AppContext } from 'next/app';
-import { getCookie, setCookie } from 'cookies-next';
+import { getCookie } from 'cookies-next';
 import Head from 'next/head';
 import { MantineProvider, ColorScheme, ColorSchemeProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
@@ -75,7 +74,7 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
           },
         }}
       >
-                <Navigation />
+        <Navigation />
 
         <Component {...pageProps} />
         <Notifications />
