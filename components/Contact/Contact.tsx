@@ -64,7 +64,7 @@ export function Contact() {
           </Flex>
         </Container>
         <Text>Ul. Radića Frane 14</Text>
-        <Text>Open everyday from 12h to 24h</Text>
+        <Text>Closed for the season. Thank you!</Text>
       </Flex>
     </BackgroundImage>
   );
