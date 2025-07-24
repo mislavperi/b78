@@ -8,12 +8,12 @@ export function Menu() {
         <Text align="center!important" maw={500} size="calc(16px + 0.390625vw)" p={5} m={5}>
           Discover a modern twist on traditional Dalmatian cuisine at our restaurant. Our menu features fresh ingredients, including herbs from our garden. Delight in Adriatic Sea seafood or savor locally sourced sheep meat from Brač. Join us for a culinary adventure celebrating Dalmatia's essence in every bite.
         </Text>
-        <a href="https://drive.google.com/file/d/1DTOuEB_zzOuJfMBj5yivkmgr-WbvfGR3/view?usp=sharing" target="_blank">
+        <a href="https://drive.google.com/file/d/1H7Ne1TQcR9XSS6k-Dh5sKfpnVeSKubg0/view?usp=sharing" target="_blank">
           <Button p={5} m={5}>
             View our menu in English
           </Button>
         </a>
-        <a href="https://drive.google.com/file/d/1oeVo93WuboAPg5EWZZHc_A16fqeSej7W/view?usp=sharing" target="_blank">
+        <a href="https://drive.google.com/file/d/1sAIYnG89wLxyE3zTtvCYVND4OEB45LfV/view?usp=sharing" target="_blank">
           <Button p={5} m={5}>
             View our menu in Croatian
           </Button>
