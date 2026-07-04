@@ -1,19 +1,19 @@
-// @ts-nocheck
 import { Flex, Image } from '@mantine/core';
 
 export function Legal() {
   return (
-    <Flex h="200px" wrap="wrap" align="center" justify="space-around">
-      <Image src="/assets/hamag1.jpg" width="400px" />
-      <Image src="/assets/eu1.jpg" width="400px" />
-      <div
-        id="r-rcm"
-        dataLength="33"
-        className=" r-rcm_black "
-        onClick="if(event.target.nodeName.toLowerCase() != 'a') {window.open(this.querySelector('.rest-white_center').href);return 0;}"
-      >
+    <Flex mih="200px" wrap="wrap" align="center" justify="space-around" bg="#02323C" py={20} gap="md">
+      <Image src="/assets/hamag1.jpg" alt="HAMAG-BICRO co-financing logo" width={400} fit="contain" />
+      <Image src="/assets/eu1.jpg" alt="European Union co-financing logo" width={400} fit="contain" />
+      {/* Restaurant Guru award widget (styles/behaviour provided by r_rcm.css). */}
+      <div id="r-rcm" data-length="33" className=" r-rcm_black ">
         {' '}
-        <a href="https://restaurantguru.com/Beer-and-More-Bol" className="r-rcm_r-link" target="blank">
+        <a
+          href="https://restaurantguru.com/Beer-and-More-Bol"
+          className="r-rcm_r-link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Boket78
         </a>{' '}
         <div className="r-rcm_year">2023</div>{' '}
@@ -33,7 +33,7 @@ export function Legal() {
             {' '}
             <defs>
               {' '}
-              <path id="r-rcm-arc" d="M 12 72 a 60 60 0 0 0 120 0"></path>{' '}
+              <path id="r-rcm-arc" d="M 12 72 a 60 60 0 0 0 120 0" />{' '}
             </defs>{' '}
             <text className="r-rcm_headingbottom r-rcm_small " fill="#fff" textAnchor="middle">
               {' '}

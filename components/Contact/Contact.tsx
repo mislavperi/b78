@@ -1,4 +1,4 @@
-import { BackgroundImage, Flex, Container, Text, Anchor, Image } from '@mantine/core';
+import { BackgroundImage, Flex, Container, Text, Image, Title } from '@mantine/core';
 import {
   IconBrandTripadvisor,
   IconBrandFacebook,
@@ -6,6 +6,7 @@ import {
   IconPhone,
   IconMail,
 } from '@tabler/icons-react';
+import { trackClick } from '../../lib/gtag';
 
 export function Contact() {
   const socials = [
@@ -25,7 +26,7 @@ export function Contact() {
       icon: <IconBrandTripadvisor color="white" size={24} />,
     },
     {
-      name: 'Call is to book a table',
+      name: 'Call us to book a table',
       link: 'tel:+385995935023',
       icon: <IconPhone color="white" size={24} />,
     },
@@ -37,34 +38,40 @@ export function Contact() {
   ];
 
   return (
-    <BackgroundImage src="/assets/contact.webp" h="100vh">
-      <Flex w="100vw" direction="column" align="center" justify="center" h="100vh">
-        <Image src="/assets/illustration.webp" maw={500} />
+    <BackgroundImage src="/assets/contact.webp" mih="100vh">
+      <Flex w="100%" direction="column" align="center" justify="center" mih="100vh" py={60}>
+        <Image src="/assets/illustration.webp" alt="Boket78 illustration" maw={500} />
         <Container fluid>
-          <Text size="calc(28px + 0.390625vw)" ml={10}>
+          <Title order={2} color="white" ml={10} sx={{ fontSize: 'calc(28px + 0.390625vw)' }}>
             Get in touch with us
-          </Text>
-          <Flex justify="space-around" m={30}>
-            {socials.map((social) => {
-              return (
-                <a href={social.link} target="_blank">
-                  <Flex
-                    align="center"
-                    style={{
-                      border: '1px solid white',
-                      padding: '5px',
-                      borderRadius: '15%',
-                    }}
-                  >
-                    {social.icon}
-                  </Flex>
-                </a>
-              );
-            })}
+          </Title>
+          <Flex justify="space-around" wrap="wrap" gap="md" m={30}>
+            {socials.map((social) => (
+              <a
+                key={social.name}
+                href={social.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.name}
+                title={social.name}
+                onClick={() => trackClick(`contact:${social.name}`, 'contact')}
+              >
+                <Flex
+                  align="center"
+                  style={{
+                    border: '1px solid white',
+                    padding: '5px',
+                    borderRadius: '15%',
+                  }}
+                >
+                  {social.icon}
+                </Flex>
+              </a>
+            ))}
           </Flex>
         </Container>
-        <Text>Ul. Radića Frane 14</Text>
-        <Text>Open 12AM - 12PM</Text>
+        <Text>Ul. Radića Frane 14, 21420 Bol, Brač</Text>
+        <Text>Open 12PM – 12AM</Text>
       </Flex>
     </BackgroundImage>
   );
