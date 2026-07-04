@@ -154,7 +154,6 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
               styles: {
                 root: {
                   color: 'white',
-                  textAlign: 'left',
                 },
               },
             },
