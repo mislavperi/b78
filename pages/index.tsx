@@ -8,18 +8,24 @@ import { Legal } from '../components/Legal/Legal';
 
 export default function HomePage() {
   return (
-    <div
-      style={{
-        height: '100vh',
-      }}
-    >
-      <Welcome />
-      <About />
-      <Menu />
-      <CardsCarousel />
-      <DesignCardsCarousel />
-      <Contact />
+    <main>
+      <section id="landing">
+        <Welcome />
+      </section>
+      <section id="about">
+        <About />
+      </section>
+      <section id="menu">
+        <Menu />
+      </section>
+      <section id="gallery" style={{ overflowX: 'hidden' }}>
+        <CardsCarousel />
+        <DesignCardsCarousel />
+      </section>
+      <section id="contact">
+        <Contact />
+      </section>
       <Legal />
-    </div>
+    </main>
   );
 }

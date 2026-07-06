@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://boket78.com/sitemap.xml

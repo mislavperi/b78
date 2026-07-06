@@ -1,128 +1,101 @@
-import { Flex, MediaQuery, Transition, Anchor } from '@mantine/core';
-import { useState } from 'react';
+import { CSSProperties, useState } from 'react';
 import Link from 'next/link';
+import { Squash as Hamburger } from 'hamburger-react';
+import { trackClick } from '../../lib/gtag';
+
+interface NavItem {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+const navItems: NavItem[] = [
+  { label: 'Home', href: '#landing' },
+  { label: 'About us', href: '#about' },
+  { label: 'Menu', href: '#menu' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Contact us', href: '#contact' },
+  { label: 'Information', href: '/info', external: true },
+];
+
+// Plain inline styles keep the overlay reliable: it mounts only on the client
+// (Mantine's emotion styles are extracted at SSR time and would not be present
+// for a client-only-mounted component), so we avoid Mantine style props here.
+const linkStyle: CSSProperties = {
+  color: 'white',
+  textDecoration: 'none',
+  fontSize: 'clamp(28px, 5vw, 48px)',
+  fontWeight: 400,
+  padding: '8px 0',
+  marginTop: 20,
+};
 
 export function Navigation() {
   const [toggled, setToggled] = useState(false);
 
+  const handleNavClick = (label: string) => {
+    trackClick(`nav:${label}`, 'navigation');
+    setToggled(false);
+  };
+
   return (
     <>
-      <Transition mounted={toggled} transition="slide-right" duration={400} timingFunction="ease">
-        {(styles) => (
-          <MediaQuery
-            smallerThan="xs"
-            styles={{
-              flexDirection: 'column',
-              height: '100vh',
-            }}
-          >
-            <Flex
-              h="100%"
-              w="100%"
-              bg="#02323C"
-              direction="row"
-              pos="fixed"
-              top={0}
-              style={{ ...styles, zIndex: 90 }}
-            >
-              <Flex direction="column" w="70%" mt={90}>
-                <MediaQuery
-                  smallerThan="xs"
-                  styles={{
-                    marginLeft: 50,
-                  }}
-                >
-                  <Anchor
-                    ml={100}
-                    mt={50}
-                    p={5}
-                    size={68}
-                    weight={400}
-                    href="#landing"
-                    onClick={() => setToggled(false)}
-                  >
-                    Home
-                  </Anchor>
-                </MediaQuery>
-                <MediaQuery
-                  smallerThan="xs"
-                  styles={{
-                    marginLeft: 50,
-                  }}
-                >
-                  <Anchor
-                    ml={100}
-                    mt={50}
-                    p={5}
-                    size={58}
-                    weight={400}
-                    href="#about"
-                    onClick={() => setToggled(false)}
-                  >
-                    About us
-                  </Anchor>
-                </MediaQuery>
-                <MediaQuery
-                  smallerThan="xs"
-                  styles={{
-                    marginLeft: 50,
-                  }}
-                >
-                  <Anchor
-                    ml={100}
-                    mt={50}
-                    p={5}
-                    size={58}
-                    weight={400}
-                    href="#menu"
-                    onClick={() => setToggled(false)}
-                  >
-                    Menu
-                  </Anchor>
-                </MediaQuery>
-                <MediaQuery
-                  smallerThan="xs"
-                  styles={{
-                    marginLeft: 50,
-                  }}
-                >
-                  <Anchor
-                    ml={100}
-                    mt={50}
-                    p={5}
-                    size={68}
-                    weight={400}
-                    href="#contact"
-                    onClick={() => setToggled(false)}
-                  >
-                    Contact us
-                  </Anchor>
-                </MediaQuery>
-                <MediaQuery
-                  smallerThan="xs"
-                  styles={{
-                    marginLeft: 50,
-                  }}
-                >
-                  <Link href="/info">
-                    <Anchor
-                      ml={100}
-                      mt={50}
-                      p={5}
-                      size={68}
-                      weight={400}
-                      href="#contact"
-                      onClick={() => setToggled(false)}
-                    >
-                      Information
-                    </Anchor>
-                  </Link>
-                </MediaQuery>
-              </Flex>
-            </Flex>
-          </MediaQuery>
-        )}
-      </Transition>
+      {/* Hamburger toggle — fixed on top of everything so the menu is always reachable. */}
+      <div style={{ position: 'fixed', top: 10, left: 10, zIndex: 100 }}>
+        <Hamburger
+          toggled={toggled}
+          toggle={setToggled}
+          color="#ffffff"
+          label="Toggle navigation menu"
+          size={28}
+        />
+      </div>
+
+      <nav
+        aria-hidden={!toggled}
+        style={{
+          position: 'fixed',
+          inset: 0,
+          zIndex: 90,
+          backgroundColor: '#02323C',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          transform: toggled ? 'translateX(0)' : 'translateX(-100%)',
+          transition: 'transform 400ms ease',
+          visibility: toggled ? 'visible' : 'hidden',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            paddingLeft: 'clamp(40px, 8vw, 100px)',
+          }}
+        >
+          {navItems.map((item) =>
+            item.external ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                style={linkStyle}
+                onClick={() => handleNavClick(item.label)}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={item.href}
+                style={linkStyle}
+                onClick={() => handleNavClick(item.label)}
+              >
+                {item.label}
+              </a>
+            )
+          )}
+        </div>
+      </nav>
     </>
   );
 }
