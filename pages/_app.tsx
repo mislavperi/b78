@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
-import NextApp, { AppProps, AppContext } from 'next/app';
+import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { getCookie } from 'cookies-next';
 import Head from 'next/head';
 import Script from 'next/script';
-import { MantineProvider, ColorScheme } from '@mantine/core';
+import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { Navigation } from '../components/Navigation/Navigation';
 import { GA_MEASUREMENT_ID, pageview } from '../lib/gtag';
@@ -42,7 +41,7 @@ const structuredData = {
   openingHours: 'Mo-Su 12:00-24:00',
 };
 
-export default function App(props: AppProps & { colorScheme: ColorScheme }) {
+export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   const router = useRouter();
 
@@ -185,11 +184,3 @@ export default function App(props: AppProps & { colorScheme: ColorScheme }) {
     </>
   );
 }
-
-App.getInitialProps = async (appContext: AppContext) => {
-  const appProps = await NextApp.getInitialProps(appContext);
-  return {
-    ...appProps,
-    colorScheme: getCookie('mantine-color-scheme', appContext.ctx) || 'light',
-  };
-};
