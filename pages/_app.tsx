@@ -33,12 +33,28 @@ const structuredData = {
     postalCode: '21420',
     addressCountry: 'HR',
   },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 43.2603,
+    longitude: 16.6547,
+  },
   sameAs: [
     'https://www.facebook.com/boket78/',
     'https://www.instagram.com/boket78.bol/',
     'https://www.tripadvisor.com/Restaurant_Review-g303802-d24138556-Reviews-Boket78-Bol_Brac_Island_Split_Dalmatia_County_Dalmatia.html',
   ],
-  openingHours: 'Mo-Su 12:00-24:00',
+  currenciesAccepted: 'EUR',
+  paymentAccepted: 'Cash, Credit Card',
+  acceptsReservations: true,
+  hasMenu: `${SITE_URL}/#menu`,
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '12:00',
+      closes: '24:00',
+    },
+  ],
 };
 
 export default function App(props: AppProps) {
@@ -70,6 +86,10 @@ export default function App(props: AppProps) {
         <link rel="canonical" href={SITE_URL} />
         <link rel="shortcut icon" href="/favicon.ico" />
 
+        {/* Preconnect to font hosts to cut render-blocking latency (Core Web Vitals). */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* Open Graph */}
         <meta property="og:type" content="restaurant.restaurant" />
         <meta property="og:site_name" content="Boket78" />
@@ -77,6 +97,7 @@ export default function App(props: AppProps) {
         <meta property="og:description" content={SITE_DESCRIPTION} />
         <meta property="og:url" content={SITE_URL} />
         <meta property="og:image" content={`${SITE_URL}/assets/landing.webp`} />
+        <meta property="og:image:alt" content="Boket78 restaurant in Bol, Brač" />
         <meta property="og:locale" content="en_US" />
 
         {/* Twitter */}
@@ -84,6 +105,7 @@ export default function App(props: AppProps) {
         <meta name="twitter:title" content={SITE_TITLE} />
         <meta name="twitter:description" content={SITE_DESCRIPTION} />
         <meta name="twitter:image" content={`${SITE_URL}/assets/landing.webp`} />
+        <meta name="twitter:image:alt" content="Boket78 restaurant in Bol, Brač" />
 
         <link href="https://awards.infcdn.net/r_rcm.css" rel="stylesheet" />
         <link
