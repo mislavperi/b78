@@ -1,4 +1,5 @@
-import { Flex, Image } from '@mantine/core';
+import { Anchor, Flex, Image } from '@mantine/core';
+import { openConsentSettings } from '../../lib/consent';
 
 export function Legal() {
   return (
@@ -46,6 +47,11 @@ export function Legal() {
           </svg>{' '}
         </div>
       </div>
+
+      {/* Lets visitors change or withdraw their cookie choice at any time. */}
+      <Anchor component="button" type="button" size="sm" onClick={openConsentSettings}>
+        Cookie settings
+      </Anchor>
     </Flex>
   );
 }

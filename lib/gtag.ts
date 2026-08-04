@@ -1,11 +1,17 @@
+import { hasAnalyticsConsent } from './consent';
+
 // Google Analytics 4 helper.
 // Set NEXT_PUBLIC_GA_MEASUREMENT_ID (e.g. "G-XXXXXXXXXX") in your environment
 // to enable analytics. When it is empty, all calls below are no-ops so the
 // site works fine in development or before an ID is provisioned.
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? '';
 
+// Nothing is sent unless the visitor accepted analytics cookies in the banner.
 export const isAnalyticsEnabled = () =>
-  typeof window !== 'undefined' && GA_MEASUREMENT_ID.length > 0 && typeof window.gtag === 'function';
+  typeof window !== 'undefined' &&
+  GA_MEASUREMENT_ID.length > 0 &&
+  typeof window.gtag === 'function' &&
+  hasAnalyticsConsent();
 
 // Track a page view (used on client-side route changes).
 export const pageview = (url: string) => {

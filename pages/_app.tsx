@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
@@ -6,6 +6,8 @@ import Script from 'next/script';
 import { MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { Navigation } from '../components/Navigation/Navigation';
+import { CookieConsent } from '../components/CookieConsent/CookieConsent';
+import { CONSENT_CHANGE_EVENT, hasAnalyticsConsent } from '../lib/consent';
 import { GA_MEASUREMENT_ID, pageview } from '../lib/gtag';
 
 const SITE_URL = 'https://boket78.com';
@@ -60,6 +62,18 @@ const structuredData = {
 export default function App(props: AppProps) {
   const { Component, pageProps } = props;
   const router = useRouter();
+  const [analyticsAllowed, setAnalyticsAllowed] = useState(false);
+
+  // Mirror the stored cookie choice, and follow it when the visitor changes it
+  // so analytics can start (or stop being requested) without a page reload.
+  useEffect(() => {
+    const syncConsent = () => setAnalyticsAllowed(hasAnalyticsConsent());
+    syncConsent();
+    window.addEventListener(CONSENT_CHANGE_EVENT, syncConsent);
+    return () => {
+      window.removeEventListener(CONSENT_CHANGE_EVENT, syncConsent);
+    };
+  }, []);
 
   // Track client-side route changes as page views in Google Analytics.
   useEffect(() => {
@@ -120,8 +134,9 @@ export default function App(props: AppProps) {
         />
       </Head>
 
-      {/* Google Analytics 4 — only loaded when a measurement ID is configured. */}
-      {GA_MEASUREMENT_ID && (
+      {/* Google Analytics 4 — loaded only when an ID is configured and the
+          visitor has accepted analytics cookies. */}
+      {GA_MEASUREMENT_ID && analyticsAllowed && (
         <>
           <Script
             strategy="afterInteractive"
@@ -201,6 +216,7 @@ export default function App(props: AppProps) {
         <Navigation />
 
         <Component {...pageProps} />
+        <CookieConsent />
         <Notifications />
       </MantineProvider>
     </>

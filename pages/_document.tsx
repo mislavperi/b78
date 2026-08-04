@@ -1,8 +1,21 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 import { createGetInitialProps } from '@mantine/next';
 
 const getInitialProps = createGetInitialProps();
+
+// Google Consent Mode v2 defaults. Everything starts denied and is only relaxed
+// once the visitor accepts in the banner (components/CookieConsent). This runs
+// inline in <head> so it is in place before gtag.js is ever requested.
+const consentModeDefault = `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied'
+  });
+`;
 
 export default class _Document extends Document {
   static getInitialProps = getInitialProps;
@@ -10,26 +23,13 @@ export default class _Document extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          {/* eslint-disable-next-line react/no-danger */}
+          <script dangerouslySetInnerHTML={{ __html: consentModeDefault }} />
+        </Head>
         <body>
           <Main />
           <NextScript />
-
-          {/* CookieHub consent management — loads before other trackers. */}
-          <Script src="https://cdn.cookiehub.eu/c2/41ffc64b.js" strategy="beforeInteractive" />
-          <Script
-            id="cookiehub-init"
-            strategy="beforeInteractive"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: `
-                document.addEventListener("DOMContentLoaded", function(event) {
-                  var cpm = {};
-                  window.cookiehub.load(cpm);
-                });
-              `,
-            }}
-          />
         </body>
       </Html>
     );
