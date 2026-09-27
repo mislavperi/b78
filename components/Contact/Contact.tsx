@@ -27,7 +27,7 @@ export function Contact() {
     },
     {
       name: 'Call us to book a table',
-      link: 'tel:+385995935023',
+      link: 'tel:+385912333471',
       icon: <IconPhone color="white" size={24} />,
     },
     {
